@@ -81,15 +81,89 @@ const personSchema = new mongoose.Schema({
 //     console.error('Error saving people:', err);
 //   });
 
-Person.find({ name: 'Kunle Rabiu' })
-.then((people) => {
-  console.log('People with the name "Kunle Rabiu":', people);
-})
-.catch((error) => {
-  console.error('Error:', error);
-});
-;
+//Person.find({ name: 'Kunle Rabiu' })
+//.then((people) => {
+  //console.log('People with the name "Kunle Rabiu":', people);
+//})
+//.catch((error) => {
+  //console.error('Error:', error);
+//});
+
+//Person.findOne({ favoriteFoods: 'pounded yam' })
+  //.then((person) => {
+    //console.log('Person who likes pounded yam:', person);
+ // })
+  //.catch((error) => {
+   // console.error('Error:', error);
+  //});
+
+  //const personId = '6519967e84850d6f3052d215';
+
+//Person.findById(personId)
+  //.then((person) => {
+    //console.log('Person with ID:', person);
+  //})
+  //.catch((error) => {
+   //console.error('Error:', error);
+  //});
+
+  //const personId = '6519967e84850d6f3052d216'; 
+
+//Person.findById(personId)
+ //.then((person) => {
+  // person.favoriteFoods.push('Hamburger');
+  // return person.save();
+  //})
+ // .then((updatedPerson) => {
+    //console.log('Updated Person:', updatedPerson);
+ //})
+  //.catch((error) => {
+    //console.error('Error:', error);
+  //});
   
+  //const personName = 'Obisesan Ajibade'; // Replace with the name to search for
+
+  //Person.findOneAndUpdate({ name: personName }, { age: 36 }, { new: true })
+   // .then((updatedPerson) => {
+     // console.log('Updated Person:', updatedPerson);
+    //})
+    //.catch((error) => {
+      //console.error('Error:', error);
+    //});
+
+    //const personId = '651993035e7e373064a208f8'; // Replace with the actual _id value
+
+//Person.findByIdAndRemove(personId)
+  //.then((removedPerson) => {
+    //console.log('Removed Person:', removedPerson);
+  //})
+  //.catch((error) => {
+    //console.error('Error:', error);
+ // });
+
+// const nameToDelete = 'Diipo poju';
+
+//Person.deleteMany({ name: nameToDelete })
+ // .then((result) => {
+   // console.log(`Deleted ${result.deletedCount} people named "${nameToDelete}"`);
+ // })
+  //.catch((error) => {
+    //console.error('Error:', error);
+  //});
+
+  Person.find({ favoriteFoods: 'potatoe' })
+  .sort({ name: 1 })
+  .limit(2)
+  .select({ age: 0 }) // Hide age
+  .exec()
+  .then((data) => {
+    console.log('Filtered and sorted data:', data);
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
+
+
   
 
 
